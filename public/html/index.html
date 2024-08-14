@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../img/LOGO.jpeg" alt="CES Consultoría Logo">
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                
+                <li><a href="../html/index.html">Formulario</a></li>
+                <li><a href="../html/pausas_activas.html"> Pausas Saludables</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h1>Registro de Datos</h1>
+        <form id="register-form">
+            <label for="full-name">Nombre Completo:</label>
+            <input type="text" id="full-name" name="fullName" required>
+        
+            <label for="document-type">Tipo de Documento:</label>
+            <select id="document-type" name="documentType" required>
+                <option value="CC">Cédula de Ciudadanía</option>
+                <option value="TI">Tarjeta de Identidad</option>
+                <option value="CE">Cédula de Extranjería</option>
+                <option value="PAS">Pasaporte</option>
+            </select>
+        
+            <label for="document">Documento:</label>
+            <input type="text" id="document" name="document" required>
+        
+            <label for="position">Cargo:</label>
+            <input type="text" id="position" name="position" required>
+        
+            <label for="data-authorization">
+                <input type="checkbox" id="data-authorization" name="dataAuthorization" required>
+                Autorizo el tratamiento de datos.
+            </label>
+        
+            <label for="pause-active">
+                <input type="checkbox" id="pause-active" name="pauseActive" required>
+                Confirmo que realicé las pausas activas.
+            </label>
+        
+            <button type="submit">Enviar</button>
+        </form>
+        
+    </div>
+    <script src="../js/index.js"></script>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const formObject = Object.fromEntries(formData.entries());
+
+            fetch('/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formObject)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message); // Mostrar alerta de éxito
+                    window.location.href = '/';
+                } else {
+                    alert('Hubo un error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un problema con el registro');
+            });
+        });
+    </script>
+</body>
+</html>

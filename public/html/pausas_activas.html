@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pausas Activas</title>
+    <link rel="stylesheet" href="../css/pausa_activa.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../img/LOGO.jpeg" alt="CES Consultoría Logo" style="height: 50px;">
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../html/index.html">Formulario</a></li>
+                <li><a href="../html/pausas_activas.html">Pausas Saludables</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1>Pausas Activas</h1>
+        <div class="day-cards">
+            <div class="day-card">
+                <h2>Lunes</h2>
+                <button data-video="../media/Pausa_Activa_Saludable_Lunes.MP4">Pausa Saludable Mañana</button>
+                <button data-video="../media/Pausa_Activa_Saludable_Lunes.MP4">Pausa Saludable Tarde</button>
+            </div>
+            <div class="day-card">
+                <h2>Martes</h2>
+                <button data-video="../media/Pausa_Activa_Saludable_Martes.MP4">Pausa Saludable Mañana</button>
+                <button data-video="../media/Pausa_Activa_Saludable_Martes.MP4">Pausa Saludable Tarde</button>
+            </div>
+            <div class="day-card">
+                <h2>Miércoles</h2>
+                <button data-video="../media/Pausa_Activa_Saludable_Miercoles.MP4">Pausa Saludable Mañana</button>
+                <button data-video="../media/Pausa_Activa_Saludable_Miercoles.MP4">Pausa Saludable Tarde</button>
+            </div>
+            <div class="day-card">
+                <h2>Jueves</h2>
+                <button data-video="../media/Pausa_Activa_Saludable_Jueves.MP4">Pausa Saludable Mañana</button>
+                <button data-video="../media/Pausa_Activa_Saludable_Jueves.MP4">Pausa Saludable Tarde</button>
+            </div>
+            <div class="day-card">
+                <h2>Viernes</h2>
+                <button data-video="../media/Pausa_Activa_Saludable_Viernes.MP4">Pausa Saludable Mañana</button>
+                <button data-video="../media/Pausa_Activa_Saludable_Viernes.MP4">Pausa Saludable Tarde</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar el video -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <video id="video-player" controls>
+                <source src="" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </div>
+    </div>
+
+    <script src="../js/pausa_activa.js"></script>
+</body>
+</html>

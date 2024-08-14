@@ -1,0 +1,247 @@
+/* Fondo SVG y configuración del cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 512"><defs><linearGradient id="SvgjsLinearGradient1105"><stop stop-color="%23ffffff" offset="0"/><stop stop-color="rgba(255, 255, 255, 0.5)" offset="0.6"/></linearGradient><linearGradient id="SvgjsLinearGradient1106"><stop stop-color="%2392909d" offset="0"/><stop stop-color="rgba(144, 148, 157, 0.5)" offset="0.6"/></linearGradient><linearGradient id="SvgjsLinearGradient1107"><stop stop-color="%23d09f44" offset="0"/><stop stop-color="rgba(208, 89, 68, 0.5)" offset="0.6"/></linearGradient></defs><rect width="900" height="512" fill="url(%23SvgjsLinearGradient1105)"/><circle r="512" cx="388" cy="0" fill="url(%23SvgjsLinearGradient1106)"/><circle r="512" cx="900" cy="512" fill="url(%23SvgjsLinearGradient1107)"/></svg>');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Menú de navegación */
+header {
+    background-color: rgba(255, 255, 255);
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .logo img {
+    height: 50px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+nav .nav-links li {
+    margin: 0 20px;
+}
+
+nav .nav-links li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+nav .nav-links li a:hover {
+    color: #e74f28;
+}
+
+/* Estilos para el menú hamburguesa */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Contenido principal de la página de pausas activas */
+.main-content {
+    padding-top: 100px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.day-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.day-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    flex-basis: 30%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.day-card:hover {
+    transform: scale(1.05);
+}
+
+.day-card h2 {
+    color: #e74f28;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.day-card button {
+    margin: 10px 0; /* Aumenta el espacio vertical entre los botones */
+    padding: 10px 20px;
+    background-color: #e74f28;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* Asegura que cada botón esté en una nueva línea */
+    width: 100%; /* Ajusta el ancho de los botones para que sean más uniformes */
+}
+
+.day-card button:hover {
+    background-color: #c0392b;
+}
+
+/* Modal para el video */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsivo para dispositivos móviles */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        padding: 10px;
+        display: block;
+        width: 100%;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .day-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .day-card {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
